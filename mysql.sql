@@ -38,4 +38,5 @@ SET JOB_DEP='hr'
 WHERE em_id=1;
 ;
 select *from employee;
+delete from employee where em_id=7; 
 
