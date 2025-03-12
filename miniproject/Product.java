@@ -1,6 +1,7 @@
 package miniproject;
 
 public class Product {
+
     private String name;
     private int stockLevel;
 

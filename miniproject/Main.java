@@ -8,73 +8,58 @@ public class Main {
         Inventory inventory = new Inventory();
 
         while (true) {
-            System.out.println("Enter command (addProduct,addstock,update,delivery ,display, exit):");
-            String command = scanner.nextLine();
+            System.out.println("Enter command (add, addStock, update, display, deliver, exit):");
+            String command = scanner.nextLine().trim().toLowerCase();
 
             switch (command) {
                 case "add":
-               
-                System.out.println("enter no of products");
-                int noof=Integer.parseInt(scanner.nextLine());
-                    for(int i=0;i<noof;i++)
-                    {
-                        System.out.println("Enter product name:");
-                        String nameof = scanner.nextLine();
-
-                        System.out.println("Enter quantity to add:");
-                        int quantityof= Integer.parseInt(scanner.nextLine());
-                        inventory.addProduct(nameof,quantityof);
-                    }
-
-                
-                    
-                
-                break;
-
+                    System.out.print("Enter product name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter stock level: ");
+                    int stockLevel = scanner.nextInt();
+                    scanner.nextLine();
+                    inventory.addProduct(name, stockLevel);
+                    break;
 
                 case "addstock":
-                    System.out.println("Enter product name:");
-                    String name = scanner.nextLine();
-
-                    System.out.println("Enter quantity to add:");
-                    int quantity = Integer.parseInt(scanner.nextLine());
-
+                    System.out.print("Enter product name: ");
+                    name = scanner.nextLine();
+                    System.out.print("Enter quantity to add: ");
+                    int quantity = scanner.nextInt();
+                    scanner.nextLine();
                     inventory.addStock(name, quantity);
                     break;
 
                 case "update":
-                    System.out.println("Enter product name:");
+                    System.out.print("Enter product name: ");
                     name = scanner.nextLine();
-
-                    System.out.println("Enter new stock level:");
-                    int stockLevel = Integer.parseInt(scanner.nextLine());
-
+                    System.out.print("Enter new stock level: ");
+                    stockLevel = scanner.nextInt();
+                    scanner.nextLine();
                     inventory.updateStock(name, stockLevel);
                     break;
 
                 case "display":
                     inventory.displayInventory();
                     break;
-            case "delivery":
-            System.out.println("Enter product name:");
-            name = scanner.nextLine();
 
-            System.out.println("Enter quantity:");
-            int quantity1 = Integer.parseInt(scanner.nextLine());
-
-                    inventory.deliveredStock(name, quantity1);
+                case "deliver":
+                    System.out.print("Enter product name: ");
+                    name = scanner.nextLine();
+                    System.out.print("Enter quantity to deliver: ");
+                    quantity = scanner.nextInt();
+                    scanner.nextLine();
+                    inventory.deliveredStock(name, quantity);
                     break;
 
                 case "exit":
                     scanner.close();
-                    System.exit(0);
-                    break;
+                    System.out.println("Exiting program.");
+                    return;
 
                 default:
-                    System.out.println("Invalid command");
-                    break;
+                    System.out.println("Invalid command. Please try again.");
             }
         }
     }
 }
-

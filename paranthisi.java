@@ -1,7 +1,7 @@
 public class paranthisi {
     public static void main(String args[])
     {
-     String str=")";
+     String str="((a))";
 System.out.println( paran(str,0,0,0));
     }
     public static int paran(String str,int index,int open ,int close){
