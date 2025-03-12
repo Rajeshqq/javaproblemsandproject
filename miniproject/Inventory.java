@@ -29,6 +29,7 @@ public class Inventory {
     public void updateStock(String name, int stockLevel) {
         for (Product p : products) {
             if (p.getName().equalsIgnoreCase(name)) {
+                
                 p.setStockLevel(stockLevel);
                 System.out.println("Product " + name + " updated with stock level " + stockLevel);
                 return;
